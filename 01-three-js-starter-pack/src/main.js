@@ -16,6 +16,13 @@ const canvas = document.querySelector('canvas#webgl')
 // Scene
 const scene = new THREE.Scene()
 
+const axesHelper = new THREE.AxesHelper(10); // Length of axes
+scene.add(axesHelper);
+
+const gridHelper = new THREE.GridHelper(10, 10); // Size, divisions
+scene.add(gridHelper);
+
+
 /**
  * House
  */
@@ -62,6 +69,9 @@ camera.position.x = 4
 camera.position.y = 2
 camera.position.z = 5
 scene.add(camera)
+
+const cameraHelper = new THREE.CameraHelper(camera);
+scene.add(cameraHelper);
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
